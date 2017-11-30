@@ -15,6 +15,7 @@ RUN apt-get -qq update && \
     mesa-common-dev \
     tcl-dev \
     tk-dev \
+    qt5-default libqt5opengl5-dev \
     ninja &&\ 
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
