@@ -44,7 +44,7 @@ RUN cd oce && \
         make install > installed_files.txt &&\
         python /tmp/remove-system-libs.py /usr/local/OCE.framework/Versions/0.18/Resources/OCE-libraries-release.cmake &&\
     rm -rf /tmp/*
-R
+    
 USER fenics
 WORKDIR /home/fenics
 
