@@ -45,6 +45,15 @@ RUN cd oce && \
         python /tmp/remove-system-libs.py /usr/local/OCE.framework/Versions/0.18/Resources/OCE-libraries-release.cmake &&\
     rm -rf /tmp/*
     
+RUN  git clone  https://github.com/tpaviot/pythonocc-core.git &&\
+     cd pythonocc-core &&\
+     mkdir build && \
+     cd build && \
+     cmake -DOCE_INCLUDE_PATH=/usr/local/include -DOCE_LIB_PATH=/usr/local/lib .. && \
+     make  && \
+     make install && \
+     cp -r pythonocc-core/examples $FENICS_HOME &&\
+     rm -rf /tmp/* \
 USER fenics
 WORKDIR /home/fenics
 
