@@ -43,7 +43,7 @@ RUN cd oce && \
 	-DOCE_WITH_GL2PS=OFF \
 	-DOCE_WITH_VTK=OFF \
 	-DOCE_INSTALL_PREFIX=/usr/local -DOCE_ENABLE_DEB_FLAG=OFF .. &&\
-        make  &&\
+        make VERBOSE=1 &&\
         make install > installed_files.txt &&\
         python /tmp/remove-system-libs.py /usr/local/OCE.framework/Versions/0.18/Resources/OCE-libraries-release.cmake &&\
     rm -rf /tmp/*
