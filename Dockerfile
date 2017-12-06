@@ -23,9 +23,9 @@ RUN apt-get -qq update && \
 COPY remove-system-libs.py /tmp/remove-system-libs.py
 
 RUN git clone https://github.com/tpaviot/oce.git 
-RUN export CFLAGS="-lpthread -lm -ldl -lstdc++"
-    export CXXFLAGS="-lpthread -lm -ldl -lstdc++"
-    export LDFLAGS="-lpthread -lm -ldl -lstdc++"
+RUN export CFLAGS="-lpthread -lm -ldl -lstdc++" && \
+    export CXXFLAGS="-lpthread -lm -ldl -lstdc++" && \
+    export LDFLAGS="-lpthread -lm -ldl -lstdc++" 
 RUN cd oce && \
     git checkout OCE-0.18.1 &&\
     mkdir build &&\
