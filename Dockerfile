@@ -18,7 +18,7 @@ RUN apt-get -qq update && \
     qt5-default libqt5opengl5-dev \
     ninja \ 
     python-software-properties software-properties-common subversion libboost-all-dev vim \
-    unzip tree freeglut3-dev freetype* SWIG python-pip && \
+    unzip tree freeglut3-dev freetype*  python-pip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
