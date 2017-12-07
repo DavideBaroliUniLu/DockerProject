@@ -16,6 +16,8 @@ RUN apt-get -qq update && \
     tcl-dev \
     tk-dev \
     ninja &&\ 
+    python-software-properties software-properties-common subversion libboost-all-dev vim \
+    unzip tree freeglut3-dev freetype* SWIG python-pip
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -32,13 +34,8 @@ RUN cd oce && \
         -DOCE_TESTING=OFF \
         -DOCE_USE_PCH=OFF \
  	-DOCE_COPY_HEADERS_BUILD=ON \
- 	-DCMAKE_PREFIX_PATH=$PREFIX \
- 	-DCMAKE_SYSTEM_PREFIX_PATH=$PREFIX \
- 	-DOCE_INSTALL_LIB_DIR=lib \
+	-DOCE_INSTALL_LIB_DIR=lib \
  	-DOCE_INSTALL_BIN_DIR=bin \
- 	-DOCE_WITH_FREEIMAGE=ON \
-	-DOCE_WITH_GL2PS=OFF \
-	-DOCE_WITH_VTK=OFF \
 	-DOCE_INSTALL_PREFIX=/usr/local -DOCE_ENABLE_DEB_FLAG=OFF .. &&\
         make  &&\
         make install > installed_files.txt &&\
