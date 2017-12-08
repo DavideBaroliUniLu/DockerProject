@@ -34,6 +34,11 @@ RUN cd oce && \
     cd build && \
     cmake  -DCMAKE_INSTALL_PREFIX=/usr/local \
         -DCMAKE_BUILD_TYPE=Release \
+	-D OCE_VISUALISATION=OFF \
+        -D OCE_DISABLE_TKSERVICE_FONT=ON \
+        -D OCE_DATAEXCHANGE=ON \
+         -D OCE_OCAF=OFF \
+        -D OCE_DISABLE_X11=ON \
         -DOCE_TESTING=OFF \
         -DOCE_USE_PCH=OFF \
  	-DOCE_COPY_HEADERS_BUILD=ON \
