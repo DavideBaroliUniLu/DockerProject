@@ -37,7 +37,7 @@ RUN cd oce && \
 	-D OCE_VISUALISATION=OFF \
         -D OCE_DISABLE_TKSERVICE_FONT=ON \
         -D OCE_DATAEXCHANGE=ON \
-         -D OCE_OCAF=OFF \
+         -D OCE_OCAF=ON \
         -D OCE_DISABLE_X11=ON \
         -DOCE_TESTING=OFF \
         -DOCE_USE_PCH=OFF \
