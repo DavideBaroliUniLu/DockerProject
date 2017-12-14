@@ -34,6 +34,11 @@ RUN cd oce && \
     cd build && \
     cmake  -DCMAKE_INSTALL_PREFIX=/usr/local \
         -DCMAKE_BUILD_TYPE=Release \
+	-D OCE_VISUALISATION=OFF \
+        -D OCE_DISABLE_TKSERVICE_FONT=ON \
+        -D OCE_DATAEXCHANGE=ON \
+         -D OCE_OCAF=ON \
+        -D OCE_DISABLE_X11=ON \
         -DOCE_TESTING=OFF \
         -DOCE_USE_PCH=OFF \
  	-DOCE_COPY_HEADERS_BUILD=ON \
@@ -43,7 +48,8 @@ RUN cd oce && \
 	-DOCE_INSTALL_PREFIX=/usr/local -DOCE_ENABLE_DEB_FLAG=OFF .. &&\
         make VERBOSE=1 &&\
         make install > installed_files.txt &&\
-        python /tmp/remove-system-libs.py /usr/local/OCE.framework/Versions/0.18/Resources/OCE-libraries-release.cmake &&\
+        cp /tmp/remove-system-libs.py /home && \
+	#python /tmp/remove-system-libs.py /usr/local/OCE.framework/Versions/0.18/Resources/OCE-libraries-release.cmake &&\
     rm -rf /tmp/*
     
 RUN  git clone  https://github.com/tpaviot/pythonocc-core.git &&\
